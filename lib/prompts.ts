@@ -58,6 +58,9 @@ export function buildPrdPrompt(input: GeneratePrdRequest) {
       "Tulis PRD lengkap dalam bahasa Indonesia.",
       "Balas hanya markdown.",
       "PRD harus profesional, rinci, actionable, dan cocok untuk tim engineer atau founder.",
+      "Utamakan subheading pendek, bullet list, dan paragraf yang padat tetapi mudah dipindai.",
+      "Gunakan tabel markdown hanya jika benar-benar membantu membandingkan opsi atau merangkum data terstruktur.",
+      "Hindari HTML seperti <br>, <table>, atau tag lain di dalam jawaban.",
       "Gunakan heading markdown dan section wajib berikut:",
       "Project Overview & Goals",
       "Target User & Persona",
@@ -76,6 +79,7 @@ export function buildPrdPrompt(input: GeneratePrdRequest) {
       formatAnswers(input),
       "Jika ada detail yang belum jelas, buat asumsi yang masuk akal dan tandai sebagai asumsi.",
       "Utamakan struktur yang tajam, detail implementatif, dan tetap mudah dibaca.",
+      "Untuk persona, features, dan scope, prioritaskan bullet list atau subheading daripada tabel lebar.",
     ].join("\n"),
   };
 }
@@ -87,6 +91,7 @@ export function buildRevisionPrompt(input: GeneratePrdRequest) {
       "Revisi PRD markdown yang sudah ada tanpa menghilangkan struktur utamanya.",
       "Balas hanya markdown.",
       "Pastikan hasil revisi tetap lengkap, koheren, dan profesional dalam bahasa Indonesia.",
+      "Pertahankan format yang nyaman dibaca: subheading jelas, bullet list rapi, dan hindari HTML seperti <br>.",
     ].join(" "),
     prompt: [
       "PRD saat ini:",

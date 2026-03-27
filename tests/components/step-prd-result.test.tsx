@@ -28,7 +28,7 @@ describe("StepPrdResult", () => {
       />,
     );
 
-    expect(screen.getByText("Workspace dokumen")).toBeInTheDocument();
+    expect(screen.getAllByText("Workspace dokumen")).toHaveLength(2);
     expect(screen.getByRole("region", { name: "Dokumen PRD" })).toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: "Revisi PRD" }));
